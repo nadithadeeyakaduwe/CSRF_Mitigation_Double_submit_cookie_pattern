@@ -9,8 +9,7 @@ if(isset($_POST['username'], $_POST['password'])) {
     if(!empty($username) && !empty($password)) {
         if (LoginService::login($_POST['username'], $_POST['password'])) {
           session_start();
-          setcookie("CSRFsessionID",session_id());
-          Token:: generate(session_id());
+          // Token:: generate(session_id());
           header('Location: home.php');
         } else {
           echo("log in Failed <br/>");
