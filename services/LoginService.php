@@ -4,7 +4,7 @@ class LoginService {
     if($username=="sliit" && $password == "123") {
       echo(session_id());
       setcookie("sessionID", session_id());
-      $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(28));
+      $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(16));
       echo("session tiken : " . $_SESSION['token']);
       setcookie("CSRFToken", $_SESSION['token']);
       return true;
