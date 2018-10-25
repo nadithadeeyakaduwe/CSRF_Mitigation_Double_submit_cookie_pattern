@@ -26,10 +26,10 @@
 			
 					if(isset($_POST['content'])) {
 						if(token::validate($csrfTokenValue, $cookieToken)) {
-							echo "<div class= \"card bg-light text-center border-primary align-middle\"  style=\" width: 500px; margin: auto; margin-top: 50px\"><div class=\"card-header\"><div class=\"alert alert-success\" role=\"alert\"> <h3>Updated Successfully</h3></div></div></div>";
+							echo "<div class=\"jumbotron text-center\" style=\" width: 500px; margin: auto; margin-top: 150px\"><h1 class=\"display-4 text-success\">Success!!!</h1><div class=\"alert alert-success lead\" role=\"alert\"><b>Your request is verified and update the status successfully.</b></div></div>";
 						}	
 						else{
-							echo "<div class= \"card bg-light text-center border-primary align-middle\"  style=\" width: 500px; margin: auto; margin-top: 50px\"><div class=\"card-header\"><div class=\"alert alert-danger\" role=\"alert\"> <h3>Updated is not Successfully</h3></div></div></div>";
+							echo "<div class=\"jumbotron text-center\" style=\" width: 500px; margin: auto; margin-top: 150px\"><h1 class=\"display-4 text-danger\">Denied!!!</h1><div class=\"alert alert-danger lead\" role=\"alert\"><b>Your request is not verified and update the status is not successfully.</b></div></div>";
 						}
 					} 
 				?>
