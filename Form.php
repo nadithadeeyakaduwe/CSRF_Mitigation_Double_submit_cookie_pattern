@@ -65,7 +65,7 @@ if(isset($_POST['username'], $_POST['password'])) {
   </form>
 
    <div class="card-footer text-muted">
-   <p><em><small>IT15014078 | Assignment - 2 | SSD</small></em></p>
+   <p><em><small>IT15014078 | Assignment - 1 | SSD</small></em></p>
     
   </div>
   </div>

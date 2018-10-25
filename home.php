@@ -3,20 +3,13 @@ require_once 'services/Token.php';
 
   session_start();
 
-  // if(isset($_POST['content'], $_POST['token'])) {
-  //   $content = $_POST['content'];
-  //   $token = $_POST['token'];
-    
-  //   if(!empty($content) && !empty($token)) {
-  //       if (Token::validate($_POST['token'], session_id())) {
-  //         header('Location: success.html');
-  //       } else {
-  //         header('Location: denied.html');
-  //       }
-  //   }
-// }
+  if(isset($_POST['content'], $_POST['token'])) {
+    $content = $_POST['content'];
+    $token = $_POST['token'];
+}
   
 ?>
+
 
 
 <html>
@@ -35,16 +28,6 @@ require_once 'services/Token.php';
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
-    function getCookie(key) {
-        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-        return keyValue ? keyValue[2] : null;
-    }
-
-    $(document).ready(function() {
-        document.csrf.token.value = getCookie("CSRFToken");
-    });
-  </script>
 
 </head>
 
@@ -53,14 +36,14 @@ require_once 'services/Token.php';
   <div class="card bg-light text-center border-primary align-middle" style=" width: 500px; margin: auto; margin-top: 50px">
   <h5 class="card-header">Update Status</h5>
   <div class="card-body">
-  <form method="POST" action="">
+  <form method="POST" name="csrf" action="final.php">
     <textarea class="text-center" type="textarea" name="content" placeholder="Status" style="height: 250px; width: 450px;"></textarea><br/><br/>
-    <input type="hidden" name="token" value=""><br/>
+    <input type="hidden" name="token" value="<?php echo $_COOKIE['CSRFToken'] ?>"><br/>
     <input class="btn btn-primary" type="submit" value="UPDATE">
   </form>
   </div>
   <div class="card-footer text-muted">
-   <p><em><small>IT15014078 | Synchronized token pattern | SSD</small></em></p>
+   <p><em><small>IT15014078 | Double submit cookie pattern | SSD</small></em></p>
     
   </div>
 
